@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KUTAWRAP — Website bán đồ ăn nhanh (Hip-hop & Urban Style)
 
-## Getting Started
+Next.js (App Router) + Tailwind CSS + Framer Motion. Gà rán, khoai chiên, combo — street vibe.
 
-First, run the development server:
+## Chạy dev
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Telegram thông báo đơn hàng
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Tạo bot qua [@BotFather](https://t.me/BotFather), lấy token.
+2. Nhắn tin cho bot, rồi mở: `https://api.telegram.org/bot<TOKEN>/getUpdates` để xem `chat_id`.
+3. Tạo file `.env.local`:
 
-## Learn More
+```
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
 
-To learn more about Next.js, take a look at the following resources:
+Khi khách nhấn **Thanh toán**, đơn (Tên, SĐT, Địa chỉ, Món, Tổng tiền) sẽ được gửi vào Telegram.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tùy chọn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Âm thanh click**: Đặt file `click.mp3` (lo-fi/trap) vào `public/sounds/`. Nếu không có file, app dùng tiếng bíp Web Audio.
+- **Ảnh sản phẩm**: Trong `src/data/products.ts` có thể đổi `image` sang đường dẫn ảnh thật (hoặc đặt ảnh trong `public/images/` và dùng `/images/xxx.jpg`).
 
-## Deploy on Vercel
+## Cấu trúc chính
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Trang chủ**: Hero + Best-seller grid
+- **Sản phẩm** (`/san-pham`): Lọc theo loại, card hover glow
+- **Chi tiết** (`/san-pham/[slug]`): Combo, topping, nút "Chốt đơn"
+- **Sự kiện** (`/su-kien`): Layout poster khuyến mãi
+- **Giỏ hàng** (`/gio-hang`) + **Thanh toán** (`/thanh-toan`) → API `POST /api/notify-telegram`
