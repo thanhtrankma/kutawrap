@@ -24,14 +24,14 @@ export default function Hero() {
           <span className="inline-block rounded-lg border-4 border-[var(--kuta-accent-yellow)] bg-[var(--kuta-accent-yellow)]/20 px-4 py-1.5 font-anton text-sm uppercase tracking-widest text-[var(--kuta-primary-teal)] md:text-base">
             Street Food — Street Vibe
           </span>
-          <h1 className="mt-5 font-anton text-4xl leading-[1.05] tracking-tight text-[var(--kuta-text)] md:text-5xl lg:text-6xl">
+          <h1 className="mt-5 font-anton text-4xl leading-[1.05] tracking-tight text-[var(--kuta-text-on-dark)] md:text-5xl lg:text-6xl">
             GÀ RÁN
             <br />
             <span className="text-[var(--kuta-accent-yellow)]">KHOAI CHIÊN</span>
             <br />
             COMBO CHẤT
           </h1>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--kuta-text)]/95">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--kuta-text-on-dark)]/95">
             Một miếng là ghiền. Order ngay — gọi là có. Giao tận nơi, freeship đơn từ 100K.
           </p>
           <motion.div
@@ -51,7 +51,7 @@ export default function Hero() {
             <Link
               href="/su-kien"
               onClick={playClick}
-              className="inline-flex items-center gap-2 rounded-xl border-4 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 px-6 py-3.5 font-baloo font-semibold text-[var(--kuta-text)] transition-all hover:bg-[var(--kuta-primary-orange)]"
+              className="inline-flex items-center gap-2 rounded-xl border-4 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 px-6 py-3.5 font-baloo font-semibold text-[var(--kuta-text-on-dark)] transition-all hover:bg-[var(--kuta-primary-orange)]"
             >
               Sự kiện
             </Link>

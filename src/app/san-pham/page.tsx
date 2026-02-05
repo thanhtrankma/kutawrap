@@ -28,7 +28,8 @@ export default function SanPhamPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div className="mb-3 inline-block rounded-r-xl border-l-4 border-[var(--kuta-accent-neon)] bg-[var(--kuta-secondary-teal)] px-5 py-2 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
+      <div className="rounded-2xl page-content-backing px-6 py-8 md:px-8 md:py-10">
+      <div className="mb-3 inline-block rounded-r-xl border-l-4 border-[var(--kuta-primary-teal)] bg-white px-5 py-2 shadow-sm">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,6 +88,7 @@ export default function SanPhamPage() {
           </motion.div>
         ))}
       </motion.div>
+      </div>
     </div>
   );
 }

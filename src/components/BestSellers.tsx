@@ -21,16 +21,16 @@ export default function BestSellers() {
   const best = getBestSellers();
 
   return (
-    <section className="border-b-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-teal)] py-16">
+    <section className="border-b-2 border-[var(--kuta-primary-teal)]/30 bg-photo-wall py-16">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-3 inline-block rounded-r-lg border-l-2 border-[var(--kuta-accent-neon)] bg-[var(--kuta-secondary-teal)] px-4 py-1.5 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
+        <div className="mb-3 inline-block rounded-r-lg border-l-4 border-[var(--kuta-primary-teal)] bg-white px-4 py-1.5 shadow-md">
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="font-anton text-xl uppercase tracking-wide text-[var(--kuta-text)] md:text-2xl"
           >
-            Best <span className="text-[var(--kuta-accent-yellow)]">Seller</span>
+            Best <span className="text-[var(--kuta-primary-teal)]">Seller</span>
           </motion.h2>
         </div>
         <motion.p

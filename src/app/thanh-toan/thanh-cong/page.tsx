@@ -9,7 +9,8 @@ export default function ThanhCongPage() {
   const { playClick } = useSound();
 
   return (
-    <div className="mx-auto max-w-lg px-4 py-20 text-center">
+    <div className="mx-auto max-w-lg px-4 py-20">
+      <div className="rounded-2xl page-content-backing px-8 py-12 text-center">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -55,6 +56,7 @@ export default function ThanhCongPage() {
           Tiếp tục mua
         </Link>
       </motion.div>
+      </div>
     </div>
   );
 }

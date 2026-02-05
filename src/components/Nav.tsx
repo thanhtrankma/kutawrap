@@ -21,7 +21,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b-4 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-teal)]/98 shadow-[0_4px_0_0_var(--kuta-primary-orange)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b-4 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-teal)] shadow-[0_4px_0_0_var(--kuta-primary-orange)] backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2" onClick={playClick}>
           <Image
@@ -38,7 +38,7 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="font-baloo text-base font-semibold text-[var(--kuta-text)] transition-colors hover:text-[var(--kuta-accent-neon)]"
+              className="font-baloo text-base font-semibold text-[var(--kuta-text-on-dark)] transition-colors hover:text-[var(--kuta-accent-neon)]"
               onClick={playClick}
             >
               {l.label}
@@ -49,7 +49,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <Link
             href="/gio-hang"
-            className="relative rounded-lg border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 p-2 text-[var(--kuta-text)] transition-colors hover:bg-[var(--kuta-primary-orange)]"
+            className="relative rounded-lg border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 p-2 text-[var(--kuta-text-on-dark)] transition-colors hover:bg-[var(--kuta-primary-orange)]"
             onClick={playClick}
           >
             <ShoppingBag className="h-6 w-6" />
@@ -61,7 +61,7 @@ export default function Nav() {
           </Link>
           <button
             type="button"
-            className="rounded-lg border-2 border-[var(--kuta-primary-orange)] p-2 text-[var(--kuta-text)] md:hidden"
+            className="rounded-lg border-2 border-[var(--kuta-primary-orange)] p-2 text-[var(--kuta-text-on-dark)] md:hidden"
             onClick={() => {
               playClick();
               setOpen((o) => !o);
@@ -85,7 +85,7 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="font-baloo py-2 font-semibold text-[var(--kuta-text)]"
+                className="font-baloo py-2 font-semibold text-[var(--kuta-text-on-dark)]"
                 onClick={() => {
                   playClick();
                   setOpen(false);

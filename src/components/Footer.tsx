@@ -12,10 +12,10 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <p className="font-baloo text-2xl font-bold tracking-wide text-[var(--kuta-text)]">
+            <p className="font-baloo text-2xl font-bold tracking-wide text-[var(--kuta-text-on-dark)]">
               KUTA<span className="text-[var(--kuta-accent-yellow)]"> WRAP</span>
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--kuta-text)]/90">
+            <p className="mt-3 text-sm leading-relaxed text-[var(--kuta-text-on-dark)]/90">
               Gà rán, khoai chiên, wrap — Hip-hop, trẻ trung, phá cách.
             </p>
           </div>
@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="font-anton text-sm uppercase tracking-wider text-[var(--kuta-accent-yellow)]">
               Liên hệ
             </p>
-            <ul className="mt-3 space-y-2 text-sm text-[var(--kuta-text)]/90">
+            <ul className="mt-3 space-y-2 text-sm text-[var(--kuta-text-on-dark)]/90">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[var(--kuta-secondary-orange)]" />
                 083 281 8986
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/san-pham"
-                  className="text-[var(--kuta-text)]/90 hover:text-[var(--kuta-accent-neon)]"
+                  className="text-[var(--kuta-text-on-dark)]/90 hover:text-[var(--kuta-accent-neon)]"
                   onClick={playClick}
                 >
                   Sản phẩm
@@ -55,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/su-kien"
-                  className="text-[var(--kuta-text)]/90 hover:text-[var(--kuta-accent-neon)]"
+                  className="text-[var(--kuta-text-on-dark)]/90 hover:text-[var(--kuta-accent-neon)]"
                   onClick={playClick}
                 >
                   Sự kiện
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/gio-hang"
-                  className="text-[var(--kuta-text)]/90 hover:text-[var(--kuta-accent-neon)]"
+                  className="text-[var(--kuta-text-on-dark)]/90 hover:text-[var(--kuta-accent-neon)]"
                   onClick={playClick}
                 >
                   Giỏ hàng
@@ -73,7 +73,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 border-t-2 border-[var(--kuta-primary-orange)]/50 pt-6 text-center text-sm text-[var(--kuta-text)]/70">
+        <div className="mt-10 border-t-2 border-[var(--kuta-primary-orange)]/50 pt-6 text-center text-sm text-[var(--kuta-text-on-dark)]/70">
           © {new Date().getFullYear()} KUTA. Brand Kit 2025.
         </div>
       </div>

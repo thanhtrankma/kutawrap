@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <Link
         href={`/san-pham/${product.slug}`}
         onClick={playClick}
-        className="flex h-full flex-col overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-orange)] transition-shadow group-hover:shadow-[3px_3px_0_0_var(--kuta-primary-orange)]"
+        className="flex h-full flex-col overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-teal)]/20 bg-white shadow-md transition-shadow group-hover:shadow-xl group-hover:border-[var(--kuta-primary-teal)]/40"
       >
         <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
           <Image
@@ -37,7 +37,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
         <div className="flex min-h-0 flex-1 flex-col p-3 sm:p-4">
-          <h3 className="font-baloo text-base font-bold leading-tight text-[var(--kuta-text)] group-hover:text-[var(--kuta-accent-cream)] sm:text-lg">
+          <h3 className="font-baloo text-base font-bold leading-tight text-[var(--kuta-text)] group-hover:text-[var(--kuta-primary-teal)] sm:text-lg">
             {product.name}
           </h3>
           <p className="mt-1 line-clamp-2 flex-1 text-sm leading-relaxed text-[var(--kuta-text)]/90">

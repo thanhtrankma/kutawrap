@@ -26,11 +26,13 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <p className="text-[var(--kuta-text)]/80">Không tìm thấy sản phẩm.</p>
-        <Link href="/san-pham" className="mt-4 inline-block font-semibold text-[var(--kuta-accent-neon)]">
-          ← Quay lại danh sách
-        </Link>
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <div className="rounded-2xl page-content-backing px-8 py-12 text-center">
+          <p className="text-[var(--kuta-text)]/80">Không tìm thấy sản phẩm.</p>
+          <Link href="/san-pham" className="mt-4 inline-block font-semibold text-[var(--kuta-accent-neon)]" onClick={playClick}>
+            ← Quay lại danh sách
+          </Link>
+        </div>
       </div>
     );
   }
@@ -70,6 +72,7 @@ export default function ProductDetailPage() {
         Quay lại
       </Link>
 
+      <div className="rounded-2xl page-content-backing px-6 py-8 md:px-8 md:py-10">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -200,6 +203,7 @@ export default function ProductDetailPage() {
           </motion.button>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

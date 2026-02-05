@@ -37,15 +37,17 @@ export default function ThanhToanPage() {
 
   if (items.length === 0 && !loading) {
     return (
-      <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <p className="text-[var(--kuta-text)]/80">Giỏ hàng trống. Thêm món rồi thanh toán nhé.</p>
-        <Link
-          href="/san-pham"
-          onClick={playClick}
-          className="mt-4 inline-block font-semibold text-[var(--kuta-accent-neon)]"
-        >
-          ← Xem sản phẩm
-        </Link>
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <div className="rounded-2xl page-content-backing px-8 py-12 text-center">
+          <p className="text-[var(--kuta-text)]/80">Giỏ hàng trống. Thêm món rồi thanh toán nhé.</p>
+          <Link
+            href="/san-pham"
+            onClick={playClick}
+            className="mt-4 inline-block font-semibold text-[var(--kuta-accent-neon)]"
+          >
+            ← Xem sản phẩm
+          </Link>
+        </div>
       </div>
     );
   }
@@ -126,7 +128,8 @@ export default function ThanhToanPage() {
         {step === 1 ? "Quay lại giỏ hàng" : "Quay lại sửa thông tin"}
       </Link>
 
-      <div className="mb-3 inline-block rounded-r-lg border-l-2 border-[var(--kuta-accent-neon)] bg-[var(--kuta-secondary-teal)] px-4 py-1.5 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
+      <div className="rounded-2xl page-content-backing px-6 py-8 md:px-8 md:py-10">
+      <div className="mb-3 inline-block rounded-r-lg border-l-4 border-[var(--kuta-primary-teal)] bg-white px-4 py-1.5 shadow-md">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -326,6 +329,7 @@ export default function ThanhToanPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 }

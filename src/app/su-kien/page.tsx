@@ -27,13 +27,14 @@ export default function SuKienPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div className="mb-3 inline-block rounded-r-lg border-l-2 border-[var(--kuta-accent-yellow)] bg-[var(--kuta-secondary-teal)] px-4 py-1.5 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
+      <div className="rounded-2xl page-content-backing px-6 py-8 md:px-8 md:py-10">
+      <div className="mb-3 inline-block rounded-r-lg border-l-4 border-[var(--kuta-primary-orange)] bg-white px-4 py-1.5 shadow-sm">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           className="font-anton text-2xl uppercase tracking-wide text-[var(--kuta-text)] md:text-3xl"
         >
-          Sự kiện & <span className="text-[var(--kuta-accent-yellow)]">Khuyến mãi</span>
+          Sự kiện & <span className="text-[var(--kuta-primary-orange)]">Khuyến mãi</span>
         </motion.h1>
       </div>
       <motion.p
@@ -55,7 +56,7 @@ export default function SuKienPage() {
           <motion.article
             key={e.id}
             variants={posterItem}
-            className={`flex min-h-0 flex-col overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-orange)] ${
+            className={`flex min-h-0 flex-col overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-teal)]/25 bg-white shadow-sm ${
               e.highlight ? "lg:col-span-2" : ""
             }`}
           >
@@ -93,6 +94,7 @@ export default function SuKienPage() {
           </motion.article>
         ))}
       </motion.div>
+      </div>
     </div>
   );
 }

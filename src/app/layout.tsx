@@ -39,11 +39,11 @@ export default function RootLayout({
       lang="vi"
       className={`${baloo.variable} ${anton.variable} ${dmSans.variable}`}
     >
-      <body className="min-h-screen bg-[var(--kuta-primary-teal)] font-sans text-[var(--kuta-text)] antialiased">
+      <body className="min-h-screen bg-[var(--kuta-bg-soft)] font-sans text-[var(--kuta-text)] antialiased">
         <CartProvider>
           <Nav />
           <Marquee />
-          <main className="min-h-screen bg-grid-texture">{children}</main>
+          <main className="min-h-screen bg-photo-wall">{children}</main>
           <Footer />
         </CartProvider>
       </body>

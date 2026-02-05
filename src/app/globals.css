@@ -1,24 +1,36 @@
 @import "tailwindcss";
 
-/* KUTA Brand Kit 2025 — Primary 60–80% */
+/* KUTA — Phối màu hài hòa, dễ nhìn */
 :root {
+  /* Brand (dùng cho viền, nút, nhấn mạnh — không phủ full nền) */
   --kuta-primary-teal: #1a585c;
   --kuta-primary-orange: #bd4c04;
+  /* Bản nhạt cho nền lớn — hài hòa, đỡ đau mắt */
+  --kuta-bg-soft: #f9f5f0;
+  --kuta-bg-teal-soft: #e8f2f3;
+  --kuta-bg-orange-soft: #fdf4ed;
+  /* Secondary */
   --kuta-secondary-teal: #27a3ad;
   --kuta-secondary-red: #b62005;
   --kuta-secondary-cyan: #69cdd5;
   --kuta-secondary-orange: #f39b04;
+  /* Accent: CTA, badge, hover */
   --kuta-accent-green: #66bf5c;
   --kuta-accent-neon: #18e402;
-  --kuta-accent-yellow: #f3cd04;
+  --kuta-accent-yellow: #e8b82c;
   --kuta-accent-cream: #ffefd3;
-  --kuta-text: #ffdbbe;
+  /* Chữ: nền sáng dùng tối, nền tối dùng sáng */
+  --kuta-text: #4a4038;
+  --kuta-text-on-dark: #ffdbbe;
   --kuta-text-white: #ffffff;
 }
 
 @theme inline {
   --color-kuta-primary-teal: var(--kuta-primary-teal);
   --color-kuta-primary-orange: var(--kuta-primary-orange);
+  --color-kuta-bg-soft: var(--kuta-bg-soft);
+  --color-kuta-bg-teal-soft: var(--kuta-bg-teal-soft);
+  --color-kuta-bg-orange-soft: var(--kuta-bg-orange-soft);
   --color-kuta-secondary-teal: var(--kuta-secondary-teal);
   --color-kuta-secondary-red: var(--kuta-secondary-red);
   --color-kuta-secondary-cyan: var(--kuta-secondary-cyan);
@@ -28,6 +40,7 @@
   --color-kuta-accent-yellow: var(--kuta-accent-yellow);
   --color-kuta-accent-cream: var(--kuta-accent-cream);
   --color-kuta-text: var(--kuta-text);
+  --color-kuta-text-on-dark: var(--kuta-text-on-dark);
 }
 
 .font-baloo {
@@ -43,15 +56,30 @@
 }
 
 body {
-  background: var(--kuta-primary-teal);
+  background: var(--kuta-bg-soft);
   color: var(--kuta-text);
   font-family: var(--font-sans), "DM Sans", sans-serif;
 }
 
 .bg-grid-texture {
-  background-image: linear-gradient(rgba(27, 163, 173, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 163, 173, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(26, 88, 92, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 88, 92, 0.04) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+/* Background: ảnh photo wall */
+.bg-photo-wall {
+  background-image: url("/images/photo-wall-texture-pattern.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Khối nội dung đặt trên nền ảnh — dễ đọc, nổi bật */
+.page-content-backing {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(26, 88, 92, 0.12);
 }
 
 @keyframes marquee {
