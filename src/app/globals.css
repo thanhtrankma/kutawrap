@@ -1,58 +1,57 @@
 @import "tailwindcss";
 
-/* Bảng màu mềm, dễ nhìn — không đen/đỏ gắt */
+/* KUTA Brand Kit 2025 — Primary 60–80% */
 :root {
-  --red: #c45c6a;
-  --red-soft: #d97a86;
-  --orange: #d4845c;
-  --orange-soft: #e09a72;
-  --bg: #232323;
-  --bg-soft: #2d2d2d;
-  --bg-card: #363636;
-  --border: #454545;
-  --text: #e8e4e0;
-  --text-muted: #a8a4a0;
+  --kuta-primary-teal: #1a585c;
+  --kuta-primary-orange: #bd4c04;
+  --kuta-secondary-teal: #27a3ad;
+  --kuta-secondary-red: #b62005;
+  --kuta-secondary-cyan: #69cdd5;
+  --kuta-secondary-orange: #f39b04;
+  --kuta-accent-green: #66bf5c;
+  --kuta-accent-neon: #18e402;
+  --kuta-accent-yellow: #f3cd04;
+  --kuta-accent-cream: #ffefd3;
+  --kuta-text: #ffdbbe;
+  --kuta-text-white: #ffffff;
 }
 
 @theme inline {
-  --color-red: var(--red);
-  --color-red-soft: var(--red-soft);
-  --color-orange: var(--orange);
-  --color-orange-soft: var(--orange-soft);
-  --color-bg: var(--bg);
-  --color-bg-soft: var(--bg-soft);
-  --color-bg-card: var(--bg-card);
-  --color-border: var(--border);
-  --color-text: var(--text);
-  --color-text-muted: var(--text-muted);
+  --color-kuta-primary-teal: var(--kuta-primary-teal);
+  --color-kuta-primary-orange: var(--kuta-primary-orange);
+  --color-kuta-secondary-teal: var(--kuta-secondary-teal);
+  --color-kuta-secondary-red: var(--kuta-secondary-red);
+  --color-kuta-secondary-cyan: var(--kuta-secondary-cyan);
+  --color-kuta-secondary-orange: var(--kuta-secondary-orange);
+  --color-kuta-accent-green: var(--kuta-accent-green);
+  --color-kuta-accent-neon: var(--kuta-accent-neon);
+  --color-kuta-accent-yellow: var(--kuta-accent-yellow);
+  --color-kuta-accent-cream: var(--kuta-accent-cream);
+  --color-kuta-text: var(--kuta-text);
 }
 
-/* Một font cho toàn site — Be Vietnam Pro hỗ trợ đầy đủ tiếng Việt có dấu */
+.font-baloo {
+  font-family: var(--font-baloo), sans-serif;
+}
+
+.font-anton {
+  font-family: var(--font-anton), sans-serif;
+}
+
 .font-sans {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-}
-
-.font-heading,
-.font-display {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans), "DM Sans", sans-serif;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  background: var(--kuta-primary-teal);
+  color: var(--kuta-text);
+  font-family: var(--font-sans), "DM Sans", sans-serif;
 }
 
 .bg-grid-texture {
-  background-image: linear-gradient(rgba(196, 92, 106, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 92, 106, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.glow-hover:hover {
-  box-shadow: 0 2px 12px rgba(196, 92, 106, 0.2);
+  background-image: linear-gradient(rgba(27, 163, 173, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 163, 173, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 @keyframes marquee {
@@ -61,5 +60,5 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 25s linear infinite;
+  animation: marquee 22s linear infinite;
 }

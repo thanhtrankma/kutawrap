@@ -27,8 +27,8 @@ export default function ProductDetailPage() {
   if (!product) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <p className="text-[var(--text)]/70">Không tìm thấy sản phẩm.</p>
-        <Link href="/san-pham" className="mt-4 inline-block text-[var(--red)]">
+        <p className="text-[var(--kuta-text)]/80">Không tìm thấy sản phẩm.</p>
+        <Link href="/san-pham" className="mt-4 inline-block font-semibold text-[var(--kuta-accent-neon)]">
           ← Quay lại danh sách
         </Link>
       </div>
@@ -64,7 +64,7 @@ export default function ProductDetailPage() {
       <Link
         href="/san-pham"
         onClick={playClick}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text)]/80 hover:text-[var(--red)]"
+        className="mb-6 inline-flex items-center gap-2 font-baloo font-semibold text-[var(--kuta-text)]/90 hover:text-[var(--kuta-accent-neon)]"
       >
         <ArrowLeft className="h-4 w-4" />
         Quay lại
@@ -75,7 +75,7 @@ export default function ProductDetailPage() {
         animate={{ opacity: 1, y: 0 }}
         className="grid gap-8 md:grid-cols-2 md:items-start"
       >
-        <div className="relative aspect-square overflow-hidden rounded-2xl border-2 border-[var(--red)]">
+        <div className="relative aspect-square overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-orange)] shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
           <Image
             src={product.image}
             alt={product.name}
@@ -87,31 +87,37 @@ export default function ProductDetailPage() {
         </div>
 
         <div>
-          <h1 className="font-heading text-3xl tracking-tight text-[var(--text)] md:text-4xl">
+          <h1 className="font-baloo text-3xl font-bold tracking-tight text-[var(--kuta-text)] md:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-3 text-base leading-relaxed text-[var(--text)]/85">{product.description}</p>
+          <p className="mt-3 text-base leading-relaxed text-[var(--kuta-text)]/90">
+            {product.description}
+          </p>
 
           {product.comboOptions && product.comboOptions.length > 0 && (
             <div className="mt-8">
-              <p className="font-semibold text-[var(--orange)]">Chọn combo / size</p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <p className="mb-3 inline-block rounded-md border border-[var(--kuta-accent-yellow)] bg-[var(--kuta-accent-yellow)]/20 px-2.5 py-0.5 font-anton text-sm uppercase text-[var(--kuta-primary-teal)]">
+                Chọn size / combo
+              </p>
+              <div className="flex flex-wrap gap-3">
                 {product.comboOptions.map((c) => (
-                  <button
+                  <motion.button
                     key={c.id}
                     type="button"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       playClick();
                       setComboId(c.id);
                     }}
-                    className={`rounded-lg border-2 px-4 py-2 font-semibold transition-all ${
+                    className={`rounded-lg border-2 px-3 py-2 font-anton text-sm transition-all ${
                       comboId === c.id
-                        ? "border-[var(--red)] bg-[var(--red)] text-white"
-                        : "border-[var(--border)] text-[var(--text)] hover:border-[var(--orange)]"
+                        ? "border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
+                        : "border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/15 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]/30"
                     }`}
                   >
                     {c.name} — {c.price.toLocaleString("vi-VN")}₫
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -119,28 +125,32 @@ export default function ProductDetailPage() {
 
           {product.toppings && product.toppings.length > 0 && (
             <div className="mt-8">
-              <p className="font-semibold text-[var(--orange)]">Thêm topping</p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <p className="mb-3 inline-block rounded-md border border-[var(--kuta-accent-yellow)] bg-[var(--kuta-accent-yellow)]/20 px-2.5 py-0.5 font-anton text-sm uppercase text-[var(--kuta-primary-teal)]">
+                Thêm topping
+              </p>
+              <div className="flex flex-wrap gap-3">
                 {product.toppings.map((t) => {
                   const on = toppingIds.includes(t.id);
                   return (
-                    <button
+                    <motion.button
                       key={t.id}
                       type="button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => {
                         playClick();
                         setToppingIds((prev) =>
                           on ? prev.filter((id) => id !== t.id) : [...prev, t.id]
                         );
                       }}
-                      className={`rounded-lg border-2 px-4 py-2 text-sm font-semibold transition-all ${
+                      className={`rounded-lg border-2 px-3 py-2 text-sm font-baloo font-semibold transition-all ${
                         on
-                          ? "border-[var(--orange)] bg-[var(--orange)]/20 text-[var(--orange)]"
-                          : "border-[var(--border)] text-[var(--text)] hover:border-[var(--orange)]"
+                          ? "border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-yellow)] text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
+                          : "border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/15 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]/30"
                       }`}
                     >
                       {t.name} +{t.price.toLocaleString("vi-VN")}₫
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -148,42 +158,42 @@ export default function ProductDetailPage() {
           )}
 
           <div className="mt-8 flex items-center gap-4">
-            <span className="font-semibold text-[var(--text)]">Số lượng</span>
-            <div className="flex items-center gap-2 rounded-lg border-2 border-[var(--border)] bg-[var(--bg-soft)] p-1">
+            <span className="font-baloo font-semibold text-[var(--kuta-text)]">Số lượng</span>
+            <div className="flex items-center gap-1 rounded-lg border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] p-1">
               <button
                 type="button"
                 onClick={() => {
                   playClick();
                   setQty((q) => Math.max(1, q - 1));
                 }}
-                className="rounded bg-[var(--border)] px-3 py-1 font-bold text-white hover:bg-[var(--red)]"
+                className="rounded-lg bg-[var(--kuta-primary-orange)] px-3 py-1.5 font-anton text-white hover:opacity-90"
               >
                 −
               </button>
-              <span className="min-w-[2rem] text-center font-semibold">{qty}</span>
+              <span className="min-w-[2.5rem] text-center font-anton text-lg">{qty}</span>
               <button
                 type="button"
                 onClick={() => {
                   playClick();
                   setQty((q) => q + 1);
                 }}
-                className="rounded bg-[var(--border)] px-3 py-1 font-bold text-white hover:bg-[var(--red)]"
+                className="rounded-lg bg-[var(--kuta-primary-orange)] px-3 py-1.5 font-anton text-white hover:opacity-90"
               >
                 +
               </button>
             </div>
           </div>
 
-          <p className="mt-6 font-display text-2xl tabular-nums text-[var(--red)]">
+          <p className="mt-6 font-anton text-2xl tabular-nums text-[var(--kuta-accent-yellow)]">
             {total.toLocaleString("vi-VN")}₫
           </p>
 
           <motion.button
             type="button"
             onClick={handleAddToCart}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--red)] py-4 font-display text-xl text-white transition-all glow-hover md:w-auto md:px-12"
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] py-4 font-anton text-xl uppercase tracking-wide text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)] md:w-auto md:px-12"
           >
             <ShoppingCart className="h-6 w-6" />
             Chốt đơn

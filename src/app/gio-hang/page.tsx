@@ -14,17 +14,17 @@ export default function GioHangPage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <ShoppingBag className="mx-auto h-16 w-16 text-[var(--border)]" />
-        <h2 className="mt-4 font-heading text-2xl tracking-wide text-[var(--text)]">
+        <ShoppingBag className="mx-auto h-16 w-16 text-[var(--kuta-secondary-cyan)]" />
+        <h2 className="mt-4 font-baloo text-2xl font-bold text-[var(--kuta-text)]">
           Giỏ hàng trống
         </h2>
-        <p className="mt-2 text-[var(--text)]/70">
+        <p className="mt-2 text-[var(--kuta-text)]/80">
           Thêm món ngon rồi quay lại nhé.
         </p>
         <Link
           href="/san-pham"
           onClick={playClick}
-          className="mt-6 inline-block rounded-lg bg-[var(--red)] px-6 py-3 font-semibold text-white"
+          className="mt-6 inline-block rounded-lg border-2 border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] px-6 py-3 font-anton text-lg uppercase text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
         >
           Xem sản phẩm
         </Link>
@@ -34,13 +34,13 @@ export default function GioHangPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div className="mb-2 inline-block rounded-r-lg border-l-4 border-[var(--red)] bg-[var(--bg-soft)] pl-4 pr-4 py-1">
+      <div className="mb-3 inline-block rounded-r-lg border-l-2 border-[var(--kuta-accent-neon)] bg-[var(--kuta-secondary-teal)] px-4 py-1.5 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-3xl tracking-wide text-[var(--text)] md:text-4xl"
+          className="font-anton text-2xl uppercase tracking-wide text-[var(--kuta-text)] md:text-3xl"
         >
-          GIỎ <span className="text-[var(--red)]">HÀNG</span>
+          Giỏ hàng
         </motion.h1>
       </div>
 
@@ -54,9 +54,9 @@ export default function GioHangPage() {
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="flex gap-4 rounded-xl border-2 border-[var(--border)] bg-[var(--bg-soft)] p-4"
+                className="flex gap-4 rounded-xl border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] p-4 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]"
               >
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg">
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg border border-[var(--kuta-primary-teal)]">
                   <Image
                     src={i.image}
                     alt={i.name}
@@ -66,16 +66,16 @@ export default function GioHangPage() {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-semibold text-[var(--text)]">{i.name}</h3>
+                  <h3 className="font-baloo font-bold text-[var(--kuta-text)]">{i.name}</h3>
                   {i.comboName && (
-                    <p className="text-sm text-[var(--orange)]">{i.comboName}</p>
+                    <p className="text-sm text-[var(--kuta-accent-yellow)]">{i.comboName}</p>
                   )}
                   {i.toppingNames?.length ? (
-                    <p className="text-xs text-[var(--text)]/60">
+                    <p className="text-xs text-[var(--kuta-text)]/70">
                       + {i.toppingNames.join(", ")}
                     </p>
                   ) : null}
-                  <p className="mt-1 font-display text-base text-[var(--red)] tabular-nums">
+                  <p className="mt-1 font-anton text-base tabular-nums text-[var(--kuta-accent-yellow)]">
                     {(i.price * i.quantity).toLocaleString("vi-VN")}₫
                   </p>
                 </div>
@@ -86,23 +86,23 @@ export default function GioHangPage() {
                       playClick();
                       removeItem(i.productId, i.comboId);
                     }}
-                    className="rounded p-1 text-[var(--text)]/60 hover:bg-[var(--red)] hover:text-white"
+                    className="rounded p-1 text-[var(--kuta-text)]/70 hover:bg-[var(--kuta-secondary-red)] hover:text-white"
                     aria-label="Xóa"
                   >
                     <Trash2 className="h-5 w-5" />
                   </button>
-                  <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg)] p-1">
+                  <div className="flex items-center gap-1 rounded-lg border border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-teal)] p-1">
                     <button
                       type="button"
                       onClick={() => {
                         playClick();
                         updateQuantity(i.productId, Math.max(0, i.quantity - 1), i.comboId);
                       }}
-                      className="rounded p-1 text-[var(--text)] hover:bg-[var(--border)]"
+                      className="rounded p-1 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]"
                     >
                       <Minus className="h-4 w-4" />
                     </button>
-                    <span className="min-w-[1.5rem] text-center text-sm font-semibold">
+                    <span className="min-w-[1.5rem] text-center font-anton text-sm">
                       {i.quantity}
                     </span>
                     <button
@@ -111,7 +111,7 @@ export default function GioHangPage() {
                         playClick();
                         updateQuantity(i.productId, i.quantity + 1, i.comboId);
                       }}
-                      className="rounded p-1 text-[var(--text)] hover:bg-[var(--border)]"
+                      className="rounded p-1 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]"
                     >
                       <Plus className="h-4 w-4" />
                     </button>
@@ -126,25 +126,25 @@ export default function GioHangPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="h-fit rounded-xl border-2 border-[var(--red)] bg-[var(--bg-soft)] p-6"
+          className="h-fit rounded-xl border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] p-6 shadow-[2px_2px_0_0_var(--kuta-primary-orange)]"
         >
-          <p className="flex justify-between text-[var(--text)]">
+          <p className="flex justify-between text-[var(--kuta-text)]">
             <span>Tạm tính ({count} món)</span>
-            <span className="font-display text-xl tabular-nums text-[var(--red)]">
+            <span className="font-anton text-xl tabular-nums text-[var(--kuta-accent-yellow)]">
               {total.toLocaleString("vi-VN")}₫
             </span>
           </p>
           <Link
             href="/thanh-toan"
             onClick={playClick}
-            className="mt-6 block w-full rounded-xl border-2 border-[var(--red)] bg-[var(--red)] py-4 text-center font-display text-lg text-white transition-all hover:bg-[var(--red-soft)] glow-hover"
+            className="mt-6 block w-full rounded-xl border-2 border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] py-4 text-center font-anton text-lg uppercase text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
           >
             Thanh toán
           </Link>
           <Link
             href="/san-pham"
             onClick={playClick}
-            className="mt-3 block text-center text-sm text-[var(--text)]/70 hover:text-[var(--orange)]"
+            className="mt-3 block text-center text-sm text-[var(--kuta-text)]/80 hover:text-[var(--kuta-accent-neon)]"
           >
             Tiếp tục mua
           </Link>

@@ -12,15 +12,18 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-      className="group"
+      whileHover={{
+        y: -4,
+        transition: { duration: 0.2 },
+      }}
+      className="group h-full"
     >
       <Link
         href={`/san-pham/${product.slug}`}
         onClick={playClick}
-        className="block overflow-hidden rounded-xl border-2 border-[var(--border)] bg-[var(--bg-soft)] transition-all duration-300 group-hover:border-[var(--red)] group-hover:shadow-[0_4px_16px_rgba(196,92,106,0.25)]"
+        className="flex h-full flex-col overflow-hidden rounded-xl border-2 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-orange)] transition-shadow group-hover:shadow-[3px_3px_0_0_var(--kuta-primary-orange)]"
       >
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
           <Image
             src={product.image}
             alt={product.name}
@@ -28,20 +31,20 @@ export default function ProductCard({ product }: { product: Product }) {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/80 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-          <span className="absolute bottom-3 left-3 rounded-md border-2 border-white/30 bg-[var(--red)] px-2.5 py-1 font-display text-sm font-bold text-white shadow-lg">
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--kuta-primary-teal)]/80 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+          <span className="absolute bottom-2 left-2 rounded-md border border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-yellow)] px-2 py-0.5 font-anton text-xs text-[var(--kuta-primary-teal)]">
             {product.price.toLocaleString("vi-VN")}₫
           </span>
         </div>
-        <div className="p-4">
-          <h3 className="font-display text-lg tracking-tight text-[var(--text)] group-hover:text-[var(--red)]">
+        <div className="flex min-h-0 flex-1 flex-col p-3 sm:p-4">
+          <h3 className="font-baloo text-base font-bold leading-tight text-[var(--kuta-text)] group-hover:text-[var(--kuta-accent-cream)] sm:text-lg">
             {product.name}
           </h3>
-          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-[var(--text)]/75">
+          <p className="mt-1 line-clamp-2 flex-1 text-sm leading-relaxed text-[var(--kuta-text)]/90">
             {product.description}
           </p>
-          <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[var(--orange)] tabular-nums">
-            <Plus className="h-4 w-4" />
+          <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[var(--kuta-accent-neon)]">
+            <Plus className="h-3.5 w-3.5" />
             Thêm vào giỏ
           </span>
         </div>

@@ -4,6 +4,8 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 function formatOrderMessage(body: {
+  orderCode?: string;
+  transactionCode?: string;
   name: string;
   phone: string;
   address: string;
@@ -12,14 +14,16 @@ function formatOrderMessage(body: {
   total: number;
 }): string {
   const lines = [
-    "🛒 *ĐƠN HÀNG MỚI*",
+    "🛒 *ĐƠN HÀNG MỚI — KUTA*",
     "",
+    ...(body.orderCode ? [`📋 *Mã đơn:* ${body.orderCode}`, ""] : []),
+    ...(body.transactionCode ? [`🏦 *Mã GD/Tham chiếu:* ${body.transactionCode}`, ""] : []),
     `👤 *Tên:* ${body.name}`,
     `📱 *SĐT:* ${body.phone}`,
     `📍 *Địa chỉ:* ${body.address}`,
     body.note ? `📝 *Ghi chú:* ${body.note}` : null,
     "",
-    "*Món:*",
+    "*Danh sách món:*",
     ...body.items.map((i) => {
       const parts = [`• ${i.name} x${i.quantity} — ${(i.price * i.quantity).toLocaleString("vi-VN")}₫`];
       if (i.comboName) parts.push(`  (${i.comboName})`);
@@ -42,6 +46,8 @@ export async function POST(request: NextRequest) {
   }
 
   let body: {
+    orderCode?: string;
+    transactionCode?: string;
     name?: string;
     phone?: string;
     address?: string;
@@ -70,6 +76,8 @@ export async function POST(request: NextRequest) {
   }
 
   const text = formatOrderMessage({
+    orderCode: body.orderCode?.trim(),
+    transactionCode: body.transactionCode?.trim(),
     name,
     phone,
     address,
