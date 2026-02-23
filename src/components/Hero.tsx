@@ -12,8 +12,46 @@ export default function Hero() {
   const { playClick } = useSound();
 
   return (
-    <section className="relative overflow-hidden border-b-4 border-[var(--kuta-primary-orange)] bg-[var(--kuta-secondary-teal)] shadow-[0_6px_0_0_var(--kuta-primary-orange)]">
-      <div className="absolute inset-0 bg-grid-texture opacity-60" />
+    <section className="relative overflow-hidden border-b-4 border-[var(--kuta-primary-orange)] shadow-[0_6px_0_0_var(--kuta-primary-orange)]">
+      {/* Nền hai màu vẽ bằng SVG: đỏ cam + teal, ranh giới sóng mềm */}
+      <div className="absolute inset-0" aria-hidden>
+        <svg
+          className="h-full w-full object-cover"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Màu theo ảnh: đỏ cam #CD5F31, teal đậm #2C6B6B */}
+            <linearGradient id="hero-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--kuta-secondary-teal)" />
+              <stop offset="100%" stopColor="#2C6B6B" />
+            </linearGradient>
+            <linearGradient id="hero-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#CD5F31" />
+              <stop offset="100%" stopColor="var(--kuta-primary-orange)" />
+            </linearGradient>
+          </defs>
+          {/* Lớp teal phủ toàn bộ */}
+          <rect width="1200" height="800" fill="url(#hero-teal)" />
+          {/* Vùng đỏ cam với đường ranh giới sóng (path Bezier mô phỏng sóng lỏng) */}
+          <path
+            fill="url(#hero-orange)"
+            d="M 0,0 L 1200,0 L 1200,800 
+               Q 1000,720 800,520 
+               Q 600,380 400,480 
+               Q 200,580 0,420 
+               L 0,0 Z"
+          />
+          {/* Blob nhỏ teal trong vùng cam (tạo cảm giác hòa trộn) */}
+          <ellipse cx="280" cy="220" rx="120" ry="100" fill="#2C6B6B" opacity="0.85" />
+          <ellipse cx="920" cy="580" rx="140" ry="110" fill="#2C6B6B" opacity="0.9" />
+          {/* Blob nhỏ cam trong vùng teal */}
+          <ellipse cx="1000" cy="680" rx="100" ry="80" fill="#CD5F31" opacity="0.75" />
+          <ellipse cx="120" cy="620" rx="90" ry="70" fill="#CD5F31" opacity="0.7" />
+        </svg>
+      </div>
+      <div className="absolute inset-0 bg-grid-texture opacity-50" />
       <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2 md:items-center md:py-20">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
@@ -25,14 +63,14 @@ export default function Hero() {
             Street Food — Street Vibe
           </span>
           <h1 className="mt-5 font-anton text-4xl leading-[1.05] tracking-tight text-[var(--kuta-text-on-dark)] md:text-5xl lg:text-6xl">
-            GÀ RÁN
+            CREATE YOUR
             <br />
-            <span className="text-[var(--kuta-accent-yellow)]">KHOAI CHIÊN</span>
+            <span className="text-[var(--kuta-accent-yellow)]">OWN WRAP</span>
             <br />
             COMBO CHẤT
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--kuta-text-on-dark)]/95">
-            Một miếng là ghiền. Order ngay — gọi là có. Giao tận nơi, freeship đơn từ 100K.
+            Tự chọn nhân, size và topping. Wings, Sandwich, Combo — order ngay, giao tận nơi.
           </p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -41,7 +79,7 @@ export default function Hero() {
             className="mt-8 flex flex-wrap gap-4"
           >
             <Link
-              href="/san-pham"
+              href="/san-pham#create_wrap"
               onClick={playClick}
               className="inline-flex items-center gap-2 rounded-xl border-4 border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] px-6 py-3.5 font-anton text-lg uppercase tracking-wide text-[var(--kuta-primary-teal)] shadow-[6px_6px_0_0_var(--kuta-primary-teal)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_0_var(--kuta-primary-teal)]"
             >

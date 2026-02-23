@@ -1,93 +1,76 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { categories, products, type ProductCategory } from "@/data/products";
-import ProductCard from "@/components/ProductCard";
+import CategoryNav from "@/components/CategoryNav";
+import CreateYourWrapConfigurator from "@/components/CreateYourWrapConfigurator";
+import MenuSection from "@/components/MenuSection";
+import {
+  menuCategories,
+  getMenuProductsByCategory,
+} from "@/data/menu";
+import type { MenuCategoryId } from "@/types/menu";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.04 },
-  },
+const SECTION_TITLES: Record<MenuCategoryId, string> = {
+  create_wrap: "Create Your Own Wrap",
+  combo_wrap: "Combo Wrap & Sandwich",
+  wings: "Special Kuta Wings (Gà nướng)",
+  cheese_sandwich: "Cheese Sandwich (BnC Sandwich)",
+  nuggets_sides: "Nuggets & Sides",
+  sauces_drinks: "Sốt & Nước",
 };
 
-const item = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0 },
+const SECTION_DESCRIPTIONS: Partial<Record<MenuCategoryId, string>> = {
+  combo_wrap: "Combo tiết kiệm — Wrap, Sandwich kèm nước.",
+  wings: "Cánh gà nướng đặc trưng Kuta, pack và combo.",
+  nuggets_sides: "Gà viên, khoai chiên, snack.",
+  sauces_drinks: "Extra sốt và nước uống.",
 };
 
 export default function SanPhamPage() {
-  const [filter, setFilter] = useState<ProductCategory | "all">("all");
-
-  const filtered = useMemo(() => {
-    if (filter === "all") return [...products];
-    return products.filter((p) => p.category === filter);
-  }, [filter]);
-
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div className="rounded-2xl page-content-backing px-6 py-8 md:px-8 md:py-10">
-      <div className="mb-3 inline-block rounded-r-xl border-l-4 border-[var(--kuta-primary-teal)] bg-white px-5 py-2 shadow-sm">
-        <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-anton text-2xl uppercase tracking-wide text-[var(--kuta-text)] md:text-3xl"
-        >
-          Sản phẩm
-        </motion.h1>
-      </div>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="mt-2 text-sm text-[var(--kuta-text)]/90 md:text-base"
-      >
-        Lọc theo loại — chọn món bạn thích
-      </motion.p>
-
-      <div className="mt-6 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => setFilter("all")}
-          className={`rounded-lg border-2 px-4 py-2 font-baloo font-semibold transition-all ${
-            filter === "all"
-              ? "border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
-              : "border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]/40"
-          }`}
-        >
-          Tất cả
-        </button>
-        {categories.map((c) => (
-          <button
-            key={c.id}
-            type="button"
-            onClick={() => setFilter(c.id)}
-            className={`rounded-lg border-2 px-4 py-2 font-baloo font-semibold transition-all ${
-              filter === c.id
-                ? "border-[var(--kuta-primary-teal)] bg-[var(--kuta-accent-neon)] text-[var(--kuta-primary-teal)] shadow-[2px_2px_0_0_var(--kuta-primary-teal)]"
-                : "border-[var(--kuta-primary-orange)] bg-[var(--kuta-primary-orange)]/20 text-[var(--kuta-text)] hover:bg-[var(--kuta-primary-orange)]/40"
-            }`}
+    <div className="mx-auto max-w-6xl px-4 py-6 md:py-8">
+      <div className="rounded-2xl page-content-backing px-4 py-6 md:px-6 md:py-8">
+        <div className="mb-3 inline-block rounded-r-xl border-l-4 border-[var(--kuta-primary-teal)] bg-white px-5 py-2 shadow-sm">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-anton text-2xl uppercase tracking-wide text-[var(--kuta-text)] md:text-3xl"
           >
-            {c.label}
-          </button>
-        ))}
-      </div>
+            Menu
+          </motion.h1>
+        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="mt-2 text-sm text-[var(--kuta-text)]/90 md:text-base"
+        >
+          Tự tạo wrap, chọn combo hoặc món lẻ — thêm vào giỏ và thanh toán.
+        </motion.p>
 
-      <motion.div
-        key={filter}
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {filtered.map((p) => (
-          <motion.div key={p.id} variants={item} className="min-h-0">
-            <ProductCard product={p} />
-          </motion.div>
-        ))}
-      </motion.div>
+        <CategoryNav />
+
+        <div className="mt-8 space-y-10">
+          {/* 1. Create Your Own Wrap — configurator */}
+          <CreateYourWrapConfigurator />
+
+          {/* 2–6. Các nhóm menu từ data */}
+          {menuCategories
+            .filter((c) => c.id !== "create_wrap")
+            .map((cat) => {
+              const products = getMenuProductsByCategory(cat.id);
+              if (products.length === 0) return null;
+              return (
+                <MenuSection
+                  key={cat.id}
+                  id={cat.id}
+                  title={SECTION_TITLES[cat.id]}
+                  description={SECTION_DESCRIPTIONS[cat.id]}
+                  products={products}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

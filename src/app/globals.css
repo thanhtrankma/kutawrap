@@ -90,3 +90,12 @@ body {
 .animate-marquee {
   animation: marquee 22s linear infinite;
 }
+
+/* Ẩn scrollbar cho nav ngang (mobile) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
