@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ProductCard from "@/components/ProductCard";
-import { getBestSellers } from "@/data/products";
+import MenuProductCard from "@/components/MenuProductCard";
+import { getMenuBestSellers } from "@/data/menu";
 
 const container = {
   hidden: { opacity: 0 },
@@ -18,7 +18,7 @@ const item = {
 };
 
 export default function BestSellers() {
-  const best = getBestSellers();
+  const best = getMenuBestSellers();
 
   return (
     <section className="border-b-2 border-[var(--kuta-primary-teal)]/30 bg-photo-wall py-16">
@@ -37,9 +37,9 @@ export default function BestSellers() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-2 text-sm text-[var(--kuta-text)]/90 md:text-base"
+          className="mt-2 text-sm text-[var(--kuta-text-on-dark)]/90 md:text-base"
         >
-          Bán chạy nhất — một miếng là ghiền
+          Bán chạy nhất — giá đúng theo menu, thêm vào giỏ ngay
         </motion.p>
         <motion.div
           variants={container}
@@ -50,7 +50,7 @@ export default function BestSellers() {
         >
           {best.map((p) => (
             <motion.div key={p.id} variants={item} className="min-h-0">
-              <ProductCard product={p} />
+              <MenuProductCard product={p} />
             </motion.div>
           ))}
         </motion.div>

@@ -52,6 +52,7 @@ export const menuProducts: MenuProduct[] = [
     image: "/images/kuta_khoai_gà.jpg",
     priceVariants: [{ id: "only", label: "Combo", price: 95000 }],
     includes: ["1 Wrap S", "1 Khoai tây chiên S", "1 Nước"],
+    tags: ["best_seller"],
   },
   {
     id: "combo-s3",
@@ -63,6 +64,7 @@ export const menuProducts: MenuProduct[] = [
     image: "/images/kuta_canhga_banh.jpg",
     priceVariants: [{ id: "only", label: "Combo", price: 138000 }],
     includes: ["1 Wrap S", "1 BnC Sandwich", "1 Nước"],
+    tags: ["best_seller"],
   },
   {
     id: "combo-s4",
@@ -74,6 +76,7 @@ export const menuProducts: MenuProduct[] = [
     image: "/images/kuta_khoai_gà.jpg",
     priceVariants: [{ id: "only", label: "Combo", price: 88000 }],
     includes: ["1 Wrap S", "1 Wapwap Size S", "1 Nước"],
+    tags: ["best_seller"],
   },
   {
     id: "couple-combo-1",
@@ -118,6 +121,7 @@ export const menuProducts: MenuProduct[] = [
     type: "single",
     image: "/images/kuta_canhganuong.jpg",
     priceVariants: [{ id: "only", label: "4 cánh", price: 80000 }],
+    tags: ["best_seller"],
   },
   {
     id: "wings-box-10",
@@ -156,6 +160,7 @@ export const menuProducts: MenuProduct[] = [
     image: "/images/kuta_canhganuong.jpg",
     priceVariants: [{ id: "only", label: "Pack", price: 149000 }],
     includes: ["4 Cánh nướng", "1 Wrap S", "1 Khoai S"],
+    tags: ["best_seller"],
   },
   {
     id: "pack-c2",
@@ -189,6 +194,7 @@ export const menuProducts: MenuProduct[] = [
     type: "single",
     image: "/images/kuta_gà_giòn.jpg",
     priceVariants: [{ id: "only", label: "1 phần", price: 69000 }],
+    tags: ["best_seller"],
   },
   {
     id: "bnc-bo-bam",
@@ -208,6 +214,7 @@ export const menuProducts: MenuProduct[] = [
     type: "single",
     image: "/images/kuta_gà_giòn.jpg",
     priceVariants: [{ id: "only", label: "160g", price: 50000 }],
+    tags: ["best_seller"],
   },
   {
     id: "box-nuggets-khoai",
